@@ -24,17 +24,21 @@ cnpm i webpack -D
 
 4.cnpm install css-loader style-loader --save-dev 解析css
 5.cnpm install sass-loader node-sass --save-dev  解析saas     css预编译程序
-6.cnpm install less-loader 解析 less
+6.cnpm install less-loader --save-dev 解析 less
 7.cnpm install url-loader --save-dev  解析url 如果不正确，请运行npm install file-loader -D，再进行尝试。
+  cnpm intall file-loader --save-dev
 
 8.cnpm install jshint-loader --save-dev    自己的js是否符合jshint的规范
 
 9.cnpm install html-webpack-plugin --save-dev   快速生成html
-
+9.cnpm install jquery --save-dev 
 
 10.cnpm install react react-dom redux react-redux redux-form --save  
-
-
+11.npm install rctui
+cnpm install history --save
+cnpm install classnames --save
+cnpm install purecss  --save
+cnpm install material-design-iconic-font --save
 11.cnpm install babel-preset-react-hmre --save-dev
             这个preset里面其实包括两方面的东西：
             react-transform-hmr 用来实现上面所说的热加载。
@@ -54,7 +58,6 @@ cnpm i webpack -D
 12.cnpm install webpack-dev-server -g
 
 运行webpack-dev-server。去浏览器查看试试效果吧！任意改变message中的值，可以看到浏览器会自动刷新。并且将改变的值展示在眼前。（有可能只在http://localhost:8080/webpack-dev-server/才会自动刷新
-
 
 #初始化后一次型安装
 cnpm install webpack babel-loader babel-preset-es2015 babel-preset-react css-loader style-loader sass-loader node-sass less-loader  url-loader  html-webpack-plugin  webpack-dev-server --save-dev  
