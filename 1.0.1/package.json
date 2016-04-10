@@ -14,6 +14,8 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.15.0",
     "less-loader": "^2.2.3",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.2.0",
@@ -23,9 +25,15 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "classnames": "^2.2.3",
+    "history": "^2.0.1",
+    "material-design-iconic-font": "^2.2.0",
+    "purecss": "^0.6.0",
+    "rctui": "^0.5.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.2",
+    "react-router": "^2.0.1",
     "redux": "^3.4.0",
     "redux-form": "^5.0.1"
   }
