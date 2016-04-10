@@ -3,7 +3,7 @@
 import { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import menulist from './menulist';
-const { Icon } = global.uiRequire();
+import { Icon } from 'rctui';
 
 class NavList extends Component {
   constructor (props) {

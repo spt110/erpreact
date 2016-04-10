@@ -4,7 +4,6 @@ import {Route, Router} from 'react-router';
 import Master from './pages/master.jsx';
 import Home from './pages/home.jsx';
 import createHistory from 'history/lib/createHashHistory';
-
 const history = createHistory({ queryKey: false });
 let menulist = [];
 

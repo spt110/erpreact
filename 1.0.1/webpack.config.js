@@ -10,9 +10,7 @@ var TEM_PATH = path.resolve(ROOT_PATH, 'src/templates');
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
 var deps = [
   'react/dist/react.min.js'
-  //'react-router/dist/react-router.min.js'
-  //'moment/min/moment.min.js',
-  //'jquery/dist/jquery.min.js',
+  ,'react-dom/dist/react-dom.min.js'
 ];
 var config = {
     //devtool: 'cheap-module-eval-source-map',
@@ -22,7 +20,7 @@ var config = {
  entry: {
     app: path.resolve(APP_PATH, 'js/app.jsx')
     //添加要打包在vendors里面的库
-    ,vendors: ['react']
+    ,vendors: ['react','react-dom']
   },
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
@@ -36,7 +34,6 @@ var config = {
       extensions: ['', '.js', '.jsx']
       ,
 alias: {
-          //'react': pathToReact
 }
   },
   module: {
@@ -66,6 +63,7 @@ alias: {
 //js
       {
             test: /\.js$/,
+           
             //使用 “loaders” 属性代替 "loader" 然后在“jsx” 加载器之前添加 “react-hot”
             loaders: ['babel-loader']
         }, 
@@ -77,7 +75,8 @@ alias: {
       loader: 'url?limit=25000'
     },
         //jsx
-        {test: /\.jsx?$/,loader:'babel-loader',query:{presets:['react','es2015']}},
+        {test: /\.jsx?$/,loader:'babel-loader',query:{presets:['react','es2015']}}
+       ,
         //使用暴漏全局加载器来暴露压缩版的React JS,
     {
       test: path.resolve(node_modules_dir, deps[0]),
@@ -85,7 +84,7 @@ alias: {
 }
     ]
   },
-  
+   externals: {'react': 'React', 'react-dom': 'ReactDOM'},
   //添加我们的插件 会自动生成一个html文件
   plugins: [
     // new webpack.ProvidePlugin({
@@ -105,7 +104,7 @@ alias: {
     template: path.resolve(TEM_PATH, 'index.html'),
     filename: 'index.html',
     //chunks这个参数告诉插件要引用entry里面的哪几个入口
-    chunks: ['app', 'vendors'],
+    chunks: ['vendors','app'],
     //要把script插入到标签里
     inject: 'body'
   })

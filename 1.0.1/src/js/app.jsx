@@ -2,9 +2,9 @@
 
 global.uiRequire = function (src) {
   if (src) {
-    return require('../../../src/' + src);
+    //return require('../src/' + src);
   } else {
-    return require('../../src/');
+   // return require('../src/');
   }
 };
 

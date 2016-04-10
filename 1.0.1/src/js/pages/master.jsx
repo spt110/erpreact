@@ -2,7 +2,7 @@
 
 import { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import NavList from '../../nav-list.jsx';
+import NavList from '../nav-list.jsx';
 
 class Page extends Component {
   constructor (props) {

@@ -1,7 +1,7 @@
 "use strict";
 
 import React from 'react';
-const {Icon} = global.uiRequire();
+import {Icon} from 'rctui';
 
 module.exports = class Home extends React.Component {
   render () {
