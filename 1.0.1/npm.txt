@@ -17,7 +17,7 @@ cnpm i webpack -D
   
 
 
-3.cnpm install babel-loader babel-preset-es2015 babel-preset-react --save-dev      
+3.cnpm install babel-loader babel-preset-es2015 babel-preset-react  babel-preset-stage-2 --save-dev      
     这里安装了babel的主体和两个babel的preset, 什么是preset呢，你可以把preset看成一个包，里面有各种各样一系列的插件。
     babel-preset-es2015 es6语法包，有了这个，你的代码可以随意的使用es6的新特性啦，const,箭头操作符等信手拈来。
     babel-preset-react react语法包，这个包，是专门作为react的优化，让你在代码中可以使用React ES6 classes的写法，同时直接支持JSX语法格式
@@ -26,19 +26,28 @@ cnpm i webpack -D
 5.cnpm install sass-loader node-sass --save-dev  解析saas     css预编译程序
 6.cnpm install less-loader --save-dev 解析 less
 7.cnpm install url-loader --save-dev  解析url 如果不正确，请运行npm install file-loader -D，再进行尝试。
-  cnpm intall file-loader --save-dev
-
+  cnpm install file-loader --save-dev
+  cnpm install expose -save-dev
 8.cnpm install jshint-loader --save-dev    自己的js是否符合jshint的规范
 
 9.cnpm install html-webpack-plugin --save-dev   快速生成html
+cnpm install webpack-dev-middleware --save-dev
+cnpm install webpack-hot-middleware --save-dev
+cnpm install express --save-dev
+cnpm install serve-static --save-dev
+cnpm install fs --save-dev
+cnpm install --save-dev babel-preset-stage-2
+
 9.cnpm install jquery --save-dev 
 
 10.cnpm install react react-dom redux react-redux redux-form --save  
-11.npm install rctui
+11.npm install rctui --save
+cnpm install rctui-icon --save
 cnpm install history --save
 cnpm install classnames --save
 cnpm install purecss  --save
 cnpm install material-design-iconic-font --save
+
 11.cnpm install babel-preset-react-hmre --save-dev
             这个preset里面其实包括两方面的东西：
             react-transform-hmr 用来实现上面所说的热加载。
