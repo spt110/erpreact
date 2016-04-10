@@ -1,0 +1,19 @@
+# 确保已经进入项目目录
+# 确定已经有 package.json，没有就通过
+1.npm init 
+# 创建，直接一路回车就好，后面再来详细说里面的内容。
+# 安装 webpack 依赖
+
+2.npm install webpack --save-dev
+# 简单的写法：-_-,缩写形式 
+npm i webpack -D
+# –save：模块名将被添加到dependencies，可以简化为参数-S。
+# –save-dev: 模块名将被添加到devDependencies，可以简化为参数-D。
+
+npm install css-loader style-loader --save-dev
+npm install url-loader --save-dev   如果不正确，请运行npm install file-loader -D，再进行尝试。
+# 安装
+npm install webpack-dev-server -g
+
+运行webpack-dev-server。去浏览器查看试试效果吧！任意改变message中的值，可以看到浏览器会自动刷新。并且将改变的值展示在眼前。（有可能只在http://localhost:8080/webpack-dev-server/才会自动刷新
+
