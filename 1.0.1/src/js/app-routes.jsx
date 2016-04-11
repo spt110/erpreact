@@ -19,7 +19,7 @@ function addMenu(list) {
 require('./menulist').forEach(function (list) {
   addMenu(list);
 });
-
+//history={history}
 const AppRoutes = (
   <Router history={history}>
     <Route path="/" indexRoute={{component: Home}} component={Master}>
