@@ -1,10 +1,13 @@
 "use strict";
 
-import {Route, Router} from 'react-router';
+import {Route, Router,useRouterHistory} from 'react-router';
 import Master from './pages/master.jsx';
 import Home from './pages/home.jsx';
-import createHistory from 'history/lib/createHashHistory';
-const history = createHistory({ queryKey: false });
+import { createHashHistory } from 'history'
+// useRouterHistory creates a composable higher-order function
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+//import createHistory from 'history/lib/createHashHistory';
+//const history = createHistory({ queryKey: false });
 let menulist = [];
 
 function addMenu(list) {
@@ -21,7 +24,7 @@ require('./menulist').forEach(function (list) {
 });
 //history={history}
 const AppRoutes = (
-  <Router history={history}>
+  <Router history={appHistory}>
     <Route path="/" indexRoute={{component: Home}} component={Master}>
       <Route path="/home" component={Home} />
       {menulist}

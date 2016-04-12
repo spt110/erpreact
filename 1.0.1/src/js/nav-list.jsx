@@ -15,7 +15,10 @@ class NavList extends Component {
 
   getClasses (name, path) {
     return classnames(name, {
-      active: this.context.history.isActive(path)
+      active: this.context.router.isActive({
+            pathname: path,
+            query: { something: 'else' }
+          })
     });
   }
 
