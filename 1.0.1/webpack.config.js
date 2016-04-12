@@ -13,7 +13,9 @@ var deps = [
   ,'react-dom/dist/react-dom.min.js'
 ];
 var config = {
-    devtool: 'cheap-module-eval-source-map',
+      devtool: 'inline-source-map',
+    //devtool: 'eval',
+   // devtool: 'cheap-module-eval-source-map'
   //项目的文件夹 可以直接用文件夹名称 默认会找index.js 
   //也可以确定是哪个文件名字
   //   entry: APP_PATH,
