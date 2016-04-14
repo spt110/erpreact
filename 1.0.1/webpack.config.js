@@ -18,9 +18,9 @@ var config = {
    // devtool: 'cheap-module-eval-source-map'
   //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
  entry: {
-    app: path.resolve(APP_PATH, 'js/app.jsx')
+    app: path.resolve(APP_PATH, 'js/app.jsx'),
     //添加要打包在vendors里面的库
-    ,vendors: ['react','react-dom']
+    vendors: ['react','react-dom']
     },
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
@@ -29,6 +29,7 @@ var config = {
      //注意 我们修改了bundle.js 用一个数组[name]来代替，他会根据entry的入口文件名称生成多个js文件，这里就是(app.js,mobile.js和vendors.js)
    //只要再加上hash这个参数就可以了
         filename: '[name].[hash].js'
+        
         },
  resolve : {
       extensions: ['', '.js', '.jsx'],
@@ -41,9 +42,9 @@ var config = {
                 {test: /\.(css|less)$/, loader: 'style-loader!css-loader?localIdentName=[hash:base64:8]!less-loader' },
                 {test: /\.scss$/,loader: 'style!css!sass'},
                 {test: /\.js$/,loaders: ['babel-loader'],include: [
-                                                                    path.resolve(__dirname, 'src'),
-                                                                    path.resolve(__dirname, 'node_modules/rctui')
-                                                                ] }, 
+                                        path.resolve(__dirname, 'src'), 
+                                        path.resolve(__dirname, 'node_modules/rctui')
+                                    ] }, 
                 {test: /\.json$/, loader: 'file-loader?name=./json/[name].json' },
                 {test: /\.(ttf|eot|woff|woff2|otf|svg)/, loader: 'file-loader?name=./font/[name].[ext]' },
                 {test: /\.(png|jpg|jpeg)$/,loader: 'url?limit=25000'}, //url  url-loader 传   limit 参数不超高25k自动转 BASE64字符串
