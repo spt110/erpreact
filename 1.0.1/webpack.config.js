@@ -20,7 +20,7 @@ var config = {
  entry: {
     app: path.resolve(APP_PATH, 'js/app.jsx'),
     //添加要打包在vendors里面的库
-    vendors: ['react','react-dom']
+    //vendors: ['react','react-dom']
     },
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
@@ -66,13 +66,13 @@ var config = {
     //这个使用uglifyJs压缩你的js代码
    // new webpack.optimize.UglifyJsPlugin({minimize: true}),
     //把入口文件里面的数组打包成verdors.js
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+    //new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
     new HtmlwebpackPlugin({
     title: 'Hello World app',
     template: path.resolve(TEM_PATH, 'index.html'),
     filename: 'index.html',
     //chunks这个参数告诉插件要引用entry里面的哪几个入口
-    chunks: ['vendors','app'],
+    chunks: ['app'],
     //要把script插入到标签里
     inject: 'body'
   })
