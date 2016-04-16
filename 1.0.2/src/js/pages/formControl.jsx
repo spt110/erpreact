@@ -42,7 +42,7 @@ class Page extends React.Component {
           <p>一系列表单控件的马甲，统一封装用来实现表单数据验证，输入提示，动态创建表单等功能。<b>可以通过 <em>getReference()</em> 这个方法获取被封装的控件。</b></p>
           <pre className="prettyprint">
 {`<FormControl
-  className="string",     // 需要额外添加的 className
+  className="string",     // 需要额外添加的 className 
   label={string|element}  // 提示文字
   name={string}           // 数据key名称，唯一
   ignore={bool}           // 为true时，不提交该项数据，默认为 false
