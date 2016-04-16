@@ -5,6 +5,7 @@ global.uiRequire = function (src) {
     //return require('../src/' + src);
   } else {
    // return require('../src/');
+   return 'rctui';
   }
 };
 
@@ -17,7 +18,7 @@ ReactDOM.render(
 );
 
 // static files
-//require('file?name=index.html!../index.html');
+require('file?name=index.html!../index.html');
 require('../json/countries.json');
 require('../json/form.json');
 require('../json/table.json');

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import prettify from '../prettify';
-import {FormControl, Button, Input, Icon, Grid, dataSource} from 'rctui';// = global.uiRequire();
+import {FormControl, Button, Input, Icon, Grid, dataSource} from 'rctui'; //global.uiRequire();
 
 const gridProps = {
   width: 1/2,

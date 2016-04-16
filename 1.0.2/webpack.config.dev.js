@@ -29,9 +29,8 @@ module.exports = {
                 {test: /\.scss$/,loader: 'style!css!sass'},
                 {test: /\.js$/,loaders: ['babel-loader'],include: [
                                         path.resolve(__dirname, 'src'), 
-                                        path.resolve(__dirname, 'node_modules/rctui'),
-                                        path.resolve(__dirname, 'node_modules/refetch')
-                                    ] }, 
+                                        path.resolve(__dirname, 'node_modules/rctui')
+                                    ]}, 
                 {test: /\.json$/, loader: 'file-loader?name=./json/[name].json' },
                 {test: /\.(ttf|eot|woff|woff2|otf|svg)/, loader: 'file-loader?name=./font/[name].[ext]' },
                 {test:/\.(png|jpg|jpeg|svg)/,loader:'url?limit=25000&name=images/[name].[ext]'},

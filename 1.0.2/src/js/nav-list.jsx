@@ -4,7 +4,6 @@ import { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import menulist from './menulist';
 import { Icon } from 'rctui';
-
 class NavList extends Component {
   constructor (props) {
     super(props);
@@ -13,15 +12,15 @@ class NavList extends Component {
     };
   }
 
-  getClasses (name, path) {//this.context.router
+  getClasses (name, path) {
     return classnames(name, {
-      active: this.context.history.isActive(path)
+      active: this.context.router.isActive({pathname:path})
     });
   }
 
   pathChange (path) {
-    if (!this.context.history.isActive(path)) {
-      this.context.history.pushState(null, path);
+    if (!this.context.router.isActive({pathname:path})) {
+      this.context.router.replace(path);
     }
   }
 
@@ -71,7 +70,7 @@ NavList.propTypes = {
 };
 
 NavList.contextTypes = {
-  history: PropTypes.object.isRequired
+  router:PropTypes.object.isRequired
 };
 
 module.exports = NavList;
