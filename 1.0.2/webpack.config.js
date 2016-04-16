@@ -8,10 +8,10 @@ var APP_PATH = path.resolve(ROOT_PATH, 'src');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var TEM_PATH = path.resolve(ROOT_PATH, 'src/templates');
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
-// var deps = [
-//   'react/dist/react.min.js'
-//   ,'react-dom/dist/react-dom.min.js'
-// ];
+var deps = [
+  'react/dist/react.min.js'
+  ,'react-dom/dist/react-dom.min.js'
+];
 var config = {
       devtool: 'inline-source-map',
     //devtool: 'eval',
@@ -20,7 +20,7 @@ var config = {
  entry: {
     app: path.resolve(APP_PATH, 'js/app.jsx'),
     //添加要打包在vendors里面的库
-    vendors: ['react','react-dom']
+    //vendors: ['react','react-dom']
     },
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
@@ -47,12 +47,13 @@ var config = {
                                     ] }, 
                 {test: /\.json$/, loader: 'file-loader?name=./json/[name].json' },
                 {test: /\.(ttf|eot|woff|woff2|otf|svg)/, loader: 'file-loader?name=./font/[name].[ext]' },
-                {test: /\.(png|jpg|jpeg)$/,loader: 'url?limit=25000'}, //url  url-loader 传   limit 参数不超高25k自动转 BASE64字符串
-                {test: /\.jsx?$/,loader:'babel-loader',exclude: /node_modules/,query:{presets:['react','es2015']}}//,
-               // {test: path.resolve(node_modules_dir, deps[0]),loader: "expose?React"}   //使用暴漏全局加载器来暴露压缩版的React JS,
+                {test:/\.(png|jpg|jpeg|svg)/,loader:'url?limit=25000&name=images/[name].[ext]'},
+                //{test: /\.(png|jpg|jpeg)$/,loader: 'url?limit=25000'}, //url  url-loader 传   limit 参数不超高25k自动转 BASE64字符串
+                {test: /\.jsx?$/,loader:'babel-loader',exclude: /node_modules/,query:{presets:['react','es2015']}},
+                {test: path.resolve(node_modules_dir, deps[0]),loader: "expose?React"}   //使用暴漏全局加载器来暴露压缩版的React JS,
     ]
   },
-  // externals: {'react': 'React', 'react-dom': 'ReactDOM'},
+   externals: {'react': 'React', 'react-dom': 'ReactDOM'},
   //添加我们的插件 会自动生成一个html文件
   plugins: [
     // new webpack.ProvidePlugin({
@@ -66,21 +67,21 @@ var config = {
     //这个使用uglifyJs压缩你的js代码
    // new webpack.optimize.UglifyJsPlugin({minimize: true}),
     //把入口文件里面的数组打包成verdors.js
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+    //new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
     new HtmlwebpackPlugin({
     title: 'Hello World app',
     template: path.resolve(TEM_PATH, 'index.html'),
     filename: 'index.html',
     //chunks这个参数告诉插件要引用entry里面的哪几个入口
-    chunks: ['vendors','app'],
+    chunks: ['app'],
     //要把script插入到标签里
     inject: 'body'
   })
   ]
 };
-// deps.forEach(function (dep) {
-//   var depPath = path.resolve(node_modules_dir, dep);
-//   config.resolve.alias[dep.split(path.sep)[0]] = depPath;
-//   config.module.noParse.push(depPath);
-// });
+deps.forEach(function (dep) {
+  var depPath = path.resolve(node_modules_dir, dep);
+  config.resolve.alias[dep.split(path.sep)[0]] = depPath;
+  config.module.noParse.push(depPath);
+});
 module.exports=config;

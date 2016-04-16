@@ -35,7 +35,7 @@ class Page extends React.Component {
       <div>
         <div className="header">
           <h1>FormControl</h1>
-          <h2>表单元素</h2>
+          <h2>222表单元素</h2>
         </div>
 
         <div className="content pure-form">
