@@ -10,7 +10,8 @@ module.exports = [
     { path: '/modal',text:'Modal',component: require('./pages/modal.jsx')},
     {path:'/table',text:'Table',component:require('./pages/table.jsx')},
         { path: '/pagination', text: 'Pagination', component: require('./pages/pagination.jsx') },
-    { path: '/grid', text: 'Grid', component: require('./pages/grid.jsx') }
+    { path: '/grid', text: 'Grid', component: require('./pages/grid.jsx') },
+    {path:"/sysUserPage",text:'SysUserPage',component:require('./pages/sysUserPage.jsx')}
 
   ]
 ];

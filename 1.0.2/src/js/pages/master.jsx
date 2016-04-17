@@ -18,7 +18,7 @@ class Page extends Component {
 
   render () {
     return (
-      <div className={classnames({ 'nav-show': this.state.navShow })}>
+      <div className={classnames({ 'nav-show': this.state.navShow })} style={{height:'100%'}}>
         <NavList onToggle={this.navToggle.bind(this)} />       
         <div className="main">{this.props.children}</div>      
       </div>
