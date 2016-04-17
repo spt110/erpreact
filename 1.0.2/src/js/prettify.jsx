@@ -10,7 +10,7 @@ module.exports = function prettify (Component) {
     }
 
     componentDidMount () {
-      window.prettyPrint(null, ReactDOM.findDOMNode(this.refs.component));
+      window.prettyPrint&&window.prettyPrint(null, ReactDOM.findDOMNode(this.refs.component));
     }
 
     render () {
