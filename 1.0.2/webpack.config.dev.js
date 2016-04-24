@@ -25,7 +25,9 @@ module.exports = {
 },
   module: {
   loaders: [
-                {test: /\.(css|less)$/, loader: 'style-loader!css-loader?localIdentName=[hash:base64:8]!less-loader' },
+                    {test: /\.(css)$/, loader: 'style-loader!css-loader?localIdentName=[hash:base64:8]' },
+
+                {test: /\.(less)$/, loader: 'style-loader!css-loader?localIdentName=[hash:base64:8]!less-loader' },
                 {test: /\.scss$/,loader: 'style!css!sass'},
                 {test: /\.js$/,loaders: ['babel-loader'],include: [
                                         path.resolve(__dirname, 'src'), 
